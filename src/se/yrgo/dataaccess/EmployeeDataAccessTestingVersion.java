@@ -8,6 +8,7 @@ import javax.enterprise.inject.Alternative;
 import javax.enterprise.inject.Default;
 
 import se.yrgo.domain.Employee;
+import se.yrgo.domain.ParkingTicket;
 
 @Stateless
 @TestingDao
@@ -49,6 +50,12 @@ public class EmployeeDataAccessTestingVersion implements EmployeeDataAccess {
 
 	@Override
 	public List<Employee> getAllEmployeesWhereIdBetween(int firstId, int secondId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<ParkingTicket> getAllParkingTickets() {
 		// TODO Auto-generated method stub
 		return null;
 	}

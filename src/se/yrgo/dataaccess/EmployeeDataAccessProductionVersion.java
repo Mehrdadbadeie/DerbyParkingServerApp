@@ -11,6 +11,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
 import se.yrgo.domain.Employee;
+import se.yrgo.domain.ParkingTicket;
 
 @Stateless
 @Default
@@ -69,6 +70,13 @@ public class EmployeeDataAccessProductionVersion implements EmployeeDataAccess {
 		q.setParameter("second", secondId);
 		List<Employee> employees = q.getResultList();
 		return employees;
+	}
+	
+	@Override
+	public List<ParkingTicket> getAllParkingTickets() {
+		Query q = em.createQuery("select ticket from Ticket ticket");
+		List<ParkingTicket> tickets = q.getResultList();
+		return tickets;
 	}
 	
 	

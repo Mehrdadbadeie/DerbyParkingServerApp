@@ -1,6 +1,8 @@
 package se.yrgo.dataaccess;
 
 import se.yrgo.domain.Employee;
+import se.yrgo.domain.ParkingTicket;
+
 import java.util.List;
 
 import javax.ejb.Local;
@@ -13,4 +15,5 @@ public interface EmployeeDataAccess {
 	public  List<Employee> findBySurname(String surname);
 	public Employee findById(int id) throws EmployeeNotFoundException;
 	public List<Employee> getAllEmployeesWhereIdBetween(int firstId, int secondId);
+	public List<ParkingTicket> getAllParkingTickets();
 }
