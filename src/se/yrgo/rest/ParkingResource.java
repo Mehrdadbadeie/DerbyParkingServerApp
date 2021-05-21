@@ -57,6 +57,9 @@ public class ParkingResource {
 		return Response.status(404).build();
 	}
 	
+	/**
+	 *  You can access this REST interface from: http://localhost:8080/EmployeeManagement/webservice/parkingtickets/
+	 */
 	@POST
 	@Produces("application/JSON")
 	@Consumes("application/JSON")
