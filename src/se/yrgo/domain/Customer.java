@@ -30,4 +30,17 @@ public class Customer implements Serializable {
 
 	public Customer() {
 	}
+
+	public int getId() {
+		return id;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+	
 }
