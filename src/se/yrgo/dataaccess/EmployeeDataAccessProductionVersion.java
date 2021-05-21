@@ -10,6 +10,7 @@ import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import se.yrgo.domain.Car;
 import se.yrgo.domain.Employee;
 import se.yrgo.domain.ParkingTicket;
 
@@ -77,6 +78,13 @@ public class EmployeeDataAccessProductionVersion implements EmployeeDataAccess {
 		Query q = em.createQuery("select ticket from Ticket ticket");
 		List<ParkingTicket> tickets = q.getResultList();
 		return tickets;
+	}
+	
+	@Override
+	public List<ParkingTicket> getCarsbyId(int id) {
+		Query q = em.createQuery("select car from Car car where car.id = :carId");
+		q.setParameter("carId", id);
+		return q.getResultList();
 	}
 	
 	
