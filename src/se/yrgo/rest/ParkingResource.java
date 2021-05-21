@@ -55,7 +55,7 @@ public class ParkingResource {
 	@POST
 	@Produces("application/JSON")
 	@Consumes("application/JSON")
-	public Response createEmployee(Employee employee) {
+	public Response createTicket(Employee employee) {
 		return Response.ok(employee).build();
 	}
 
