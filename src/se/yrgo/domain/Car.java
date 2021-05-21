@@ -32,4 +32,16 @@ public class Car implements Serializable {
 	public Car() {
 	}
 
+	public int getId() {
+		return id;
+	}
+
+	public String getRegNumber() {
+		return regNumber;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+	
 }
