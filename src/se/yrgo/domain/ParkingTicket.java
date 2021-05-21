@@ -18,8 +18,8 @@ public class ParkingTicket implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	private LocalDateTime validThroughBegin;
-	private LocalDateTime validThroughEnd;
+	private String validThroughBegin;
+	private String validThroughEnd;
 	private int pricePerhour;
 	private String streetAddress;
 
@@ -49,8 +49,8 @@ public class ParkingTicket implements Serializable {
 		
 		LocalDateTime timeNow = LocalDateTime.now();
 		LocalDateTime endTime = timeNow.plusHours(2);
-		this.validThroughBegin = timeNow;
-		this.validThroughEnd = endTime;
+		this.validThroughBegin = timeNow.toString();
+		this.validThroughEnd = endTime.toString();
 		this.pricePerhour = pricePerhour;
 		this.streetAddress = streetAddress;
 		this.car = car;
@@ -65,11 +65,11 @@ public class ParkingTicket implements Serializable {
 	}
 	
 
-	public LocalDateTime getValidThroughBegin() {
+	public String getValidThroughBegin() {
 		return validThroughBegin;
 	}
 
-	public LocalDateTime getValidThroughEnd() {
+	public String getValidThroughEnd() {
 		return validThroughEnd;
 	}
 	
