@@ -1,14 +1,9 @@
 package se.yrgo.domain;
 
+import javax.persistence.*;
 import java.io.Serializable;
-import java.time.LocalDate;
 import java.util.Date;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 /**
  * 
  * This is a parking ticket.
@@ -22,8 +17,8 @@ public class ParkingTicket implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	private LocalDate validThroughBegin;
-	private LocalDate validThroughEnd;
+	private Date validThroughBegin;
+	private Date validThroughEnd;
 	private int pricePerhour;
 	private String streetAddress;
 
@@ -47,17 +42,46 @@ public class ParkingTicket implements Serializable {
 	 * @param car               Car that this parking ticket has been issued for.
 	 * @param customer
 	 */
-	public ParkingTicket(LocalDate validThroughBegin, LocalDate validThroughEnd, int pricePerhour,
-			String parkingLocation, Car car, Customer customer) {
+	public ParkingTicket(Date validThroughBegin, Date validThroughEnd, int pricePerhour,
+			String streetAddress, Car car, Customer customer) {
 		super();
 		this.validThroughBegin = validThroughBegin;
 		this.validThroughEnd = validThroughEnd;
 		this.pricePerhour = pricePerhour;
-		this.streetAddress = parkingLocation;
+		this.streetAddress = streetAddress;
 		this.car = car;
 		this.customer = customer;
 	}
 
 	public ParkingTicket() {
+	}
+
+	public int getId() {
+		return id;
+	}
+	
+
+	public Date getValidThroughBegin() {
+		return validThroughBegin;
+	}
+
+	public Date getValidThroughEnd() {
+		return validThroughEnd;
+	}
+	
+	public int getPricePerhour() {
+		return pricePerhour;
+	}
+
+	public String getStreetAddress() {
+		return streetAddress;
+	}
+
+	public Car getCar() {
+		return car;
+	}
+
+	public Customer getCustomer() {
+		return customer;
 	}
 }
