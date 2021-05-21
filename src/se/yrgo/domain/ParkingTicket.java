@@ -2,6 +2,7 @@ package se.yrgo.domain;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 /**
@@ -17,8 +18,8 @@ public class ParkingTicket implements Serializable {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 
-	private Date validThroughBegin;
-	private Date validThroughEnd;
+	private LocalDateTime validThroughBegin;
+	private LocalDateTime validThroughEnd;
 	private int pricePerhour;
 	private String streetAddress;
 
@@ -42,11 +43,14 @@ public class ParkingTicket implements Serializable {
 	 * @param car               Car that this parking ticket has been issued for.
 	 * @param customer
 	 */
-	public ParkingTicket(Date validThroughBegin, Date validThroughEnd, int pricePerhour,
+	public ParkingTicket(int pricePerhour,
 			String streetAddress, Car car, Customer customer) {
 		super();
-		this.validThroughBegin = validThroughBegin;
-		this.validThroughEnd = validThroughEnd;
+		
+		LocalDateTime timeNow = LocalDateTime.now();
+		LocalDateTime endTime = timeNow.plusHours(2);
+		this.validThroughBegin = timeNow;
+		this.validThroughEnd = endTime;
 		this.pricePerhour = pricePerhour;
 		this.streetAddress = streetAddress;
 		this.car = car;
@@ -61,11 +65,11 @@ public class ParkingTicket implements Serializable {
 	}
 	
 
-	public Date getValidThroughBegin() {
+	public LocalDateTime getValidThroughBegin() {
 		return validThroughBegin;
 	}
 
-	public Date getValidThroughEnd() {
+	public LocalDateTime getValidThroughEnd() {
 		return validThroughEnd;
 	}
 	

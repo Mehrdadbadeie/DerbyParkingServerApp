@@ -29,7 +29,7 @@ public class ParkingResource {
 			Car car1 = new Car("ZER 992", "grey Lada");
 			Customer customer1 = new Customer("George", "Costanza");
 			
-			ParkingTicket ticket = new ParkingTicket(new Date(), new Date(), 15, "Ågatan 5", car1, customer1);
+			ParkingTicket ticket = new ParkingTicket(15, "Ågatan 5", car1, customer1);
 			return Response.ok(ticket).build();
 		}
 		
@@ -52,13 +52,12 @@ public class ParkingResource {
 		return Response.status(404).build();
 	}
 	
-	/*
+
 	@POST
 	@Produces("application/JSON")
 	@Consumes("application/JSON")
 	public Response createEmployee(Employee employee) {
 		return Response.ok(employee).build();
 	}
-	*/
 
 }
