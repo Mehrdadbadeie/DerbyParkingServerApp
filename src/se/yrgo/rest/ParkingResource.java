@@ -66,5 +66,7 @@ public class ParkingResource {
 	public Response createTicket(ParkingTicket ticket) {
 		return Response.ok(ticket).build();
 	}
+	
+	//Testing git
 
 }
