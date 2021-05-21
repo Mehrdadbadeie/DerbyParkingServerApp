@@ -3,10 +3,7 @@ package se.yrgo.rest;
 import java.util.Date;
 
 import javax.ejb.Stateless;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
 import se.yrgo.domain.Car;
@@ -34,5 +31,18 @@ public class ParkingResource {
 		
 		return Response.status(404).build();
 	}
-	
+
+	@DELETE
+	@Produces("application/JSON") // @Produces("application/XML")
+	@Path("{ticketId}")
+	public Response deleteTicketById(@PathParam("ticketId") int id) {
+
+		/* This is just some meaningless test code to check that we are able to make requests. */
+		if (id == 5) {
+			return Response.ok(null).build();
+		}
+
+		return Response.status(404).build();
+	}
+
 }
