@@ -3,6 +3,7 @@ package se.yrgo.rest;
 import java.util.Date;
 
 import javax.ejb.Stateless;
+import javax.inject.Inject;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Response;
 
@@ -10,11 +11,15 @@ import se.yrgo.domain.Car;
 import se.yrgo.domain.Customer;
 import se.yrgo.domain.Employee;
 import se.yrgo.domain.ParkingTicket;
+import se.yrgo.service.EmployeeManagementServiceLocal;
 
 
 @Stateless
 @Path("/parkingtickets/")
 public class ParkingResource {
+	
+	@Inject
+	private EmployeeManagementServiceLocal service;
 
 	@GET
 	@Produces("application/JSON") // @Produces("application/XML")
@@ -29,7 +34,7 @@ public class ParkingResource {
 			Car car1 = new Car("ZER 992", "grey Lada");
 			Customer customer1 = new Customer("George", "Costanza");
 			
-			ParkingTicket ticket = new ParkingTicket(15, "�gatan 5", car1, customer1);
+			ParkingTicket ticket = new ParkingTicket(2, 15, "�gatan 5", car1, customer1);
 			return Response.ok(ticket).build();
 		}
 		
@@ -55,8 +60,8 @@ public class ParkingResource {
 	@POST
 	@Produces("application/JSON")
 	@Consumes("application/JSON")
-	public Response createTicket(Employee employee) {
-		return Response.ok(employee).build();
+	public Response createTicket(ParkingTicket ticket) {
+		return Response.ok(ticket).build();
 	}
 
 }
