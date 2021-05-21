@@ -52,13 +52,12 @@ public class ParkingResource {
 		return Response.status(404).build();
 	}
 	
-	/*
+	
 	@POST
 	@Produces("application/JSON")
 	@Consumes("application/JSON")
 	public Response createEmployee(Employee employee) {
 		return Response.ok(employee).build();
 	}
-	*/
 
 }
