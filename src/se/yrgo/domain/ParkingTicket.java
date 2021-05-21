@@ -43,12 +43,12 @@ public class ParkingTicket implements Serializable {
 	 * @param car               Car that this parking ticket has been issued for.
 	 * @param customer
 	 */
-	public ParkingTicket(int pricePerhour,
+	public ParkingTicket(int hours, int pricePerhour,
 			String streetAddress, Car car, Customer customer) {
 		super();
 		
 		LocalDateTime timeNow = LocalDateTime.now();
-		LocalDateTime endTime = timeNow.plusHours(2);
+		LocalDateTime endTime = timeNow.plusHours(hours);
 		this.validThroughBegin = timeNow.toString();
 		this.validThroughEnd = endTime.toString();
 		this.pricePerhour = pricePerhour;
