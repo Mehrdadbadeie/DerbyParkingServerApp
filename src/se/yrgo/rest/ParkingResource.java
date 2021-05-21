@@ -18,6 +18,9 @@ public class ParkingResource {
 	@GET
 	@Produces("application/JSON") // @Produces("application/XML")
 	@Path("{ticketId}")
+	/**
+	 *  You can access this REST interface from: http://localhost:8080/EmployeeManagement/webservice/parkingtickets/5
+	 */
 	public Response findTicketById(@PathParam("ticketId") int id) {
 
 		/* This is just some meaningless test code to check that we are able to make requests. */
@@ -35,6 +38,9 @@ public class ParkingResource {
 	@DELETE
 	@Produces("application/JSON") // @Produces("application/XML")
 	@Path("{ticketId}")
+	/**
+	 *  You can access this REST interface from: http://localhost:8080/EmployeeManagement/webservice/parkingtickets/5
+	 */
 	public Response deleteTicketById(@PathParam("ticketId") int id) {
 
 		/* This is just some meaningless test code to check that we are able to make requests. */
